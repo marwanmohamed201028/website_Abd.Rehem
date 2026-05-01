@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abd Rehem - Premium Clothing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #2E7D32;
+      --color-primary-light: #4CAF50;
+      --color-white: #FFFFFF;
+      --color-background: #FFFFFF;
+      --color-text: #1A1A1A;
+      --color-text-light: #666666;
+      --color-border: #E0E0E0;
+      --color-gray-100: #F5F5F5;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-family);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    
+    .logo-text {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    
+    nav {
+      display: flex;
+      gap: 32px;
+    }
+    
+    nav a {
+      color: var(--color-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    
+    nav a:hover {
+      color: var(--color-primary);
+    }
+    
+    .cart-btn {
+      background: var(--color-primary);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .cart-btn:hover {
+      background: var(--color-primary-light);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+      color: white;
+      padding: 80px 0;
+    }
+    
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 24px;
+    }
+    
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    
+    .btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: white;
+      color: var(--color-primary);
+    }
+    
+    .btn-primary:hover {
+      background: var(--color-gray-100);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-secondary:hover {
+      background: white;
+      color: var(--color-primary);
+    }
+    
+    .brand-logo {
+      width: 200px;
+      height: 200px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    
+    .brand-logo span {
+      font-size: 48px;
+      font-weight: 700;
+    }
+    
+    /* Sections */
+    .section {
+      padding: 64px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-text-light);
+      font-size: 18px;
+      margin-bottom: 48px;
+    }
+    
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    
+    .product-image {
+      aspect-ratio: 1;
+      background: var(--color-gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .placeholder-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--color-text-light);
+    }
+    
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    
+    .badge-new {
+      background: var(--color-primary);
+      color: white;
+    }
+    
+    .badge-sale {
+      background: #EF4444;
+      color: white;
+    }
+    
+    .product-info {
+      padding: 20px;
+    }
+    
+    .product-category {
+      font-size: 12px;
+      color: var(--color-text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .product-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 8px 0;
+    }
+    
+    .product-desc {
+      color: var(--color-text-light);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .product-colors {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    
+    .color-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+    }
+    
+    .color-green {
+      background: var(--color-primary);
+    }
+    
+    .color-white {
+      background: white;
+    }
+    
+    .product-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+    
+    .product-price .original {
+      color: var(--color-text-light);
+      text-decoration: line-through;
+      font-size: 16px;
+      margin-left: 8px;
+    }
+    
+    .add-to-cart {
+      width: 100%;
+      background: var(--color-primary);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .add-to-cart:hover {
+      background: var(--color-primary-light);
+    }
+    
+    /* Benefits */
+    .benefits {
+      background: var(--color-gray-100);
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    
+    .benefit-card {
+      text-align: center;
+      padding: 24px;
+    }
+    
+    .benefit-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      color: white;
+    }
+    
+    .benefit-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    
+    .benefit-card p {
+      color: var(--color-text-light);
+    }
+    
+    /* Footer */
+    footer {
+      background: #111827;
+      color: white;
+      padding: 64px 0 32px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    
+    .footer-brand .logo {
+      margin-bottom: 16px;
+    }
+    
+    .footer-brand p {
+      color: #9CA3AF;
+    }
+    
+    .footer h4 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    
+    .footer ul {
+      list-style: none;
+    }
+    
+    .footer li {
+      margin-bottom: 12px;
+    }
+    
+    .footer a {
+      color: #9CA3AF;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer a:hover {
+      color: var(--color-primary-light);
+    }
+    
+    .newsletter input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      background: #1F2937;
+      color: white;
+      margin-bottom: 12px;
+    }
+    
+    .newsletter input::placeholder {
+      color: #9CA3AF;
+    }
+    
+    .newsletter button {
+      width: 100%;
+      background: var(--color-primary);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid #374151;
+      padding-top: 32px;
+      text-align: center;
+      color: #9CA3AF;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+    
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: #1F2937;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9CA3AF;
+      transition: all 0.2s;
+    }
+    
+    .social-links a:hover {
+      background: var(--color-primary);
+      color: white;
+    }
+    
+    /* Cart Modal */
+    .cart-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+    
+    .cart-modal.active {
+      display: flex;
+    }
+    
+    .cart-panel {
+      width: 100%;
+      max-width: 420px;
+      background: white;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .cart-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .cart-header h2 {
+      font-size: 20px;
+    }
+    
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    
+    .cart-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    
+    .cart-item-image {
+      width: 80px;
+      height: 80px;
+      background: var(--color-gray-100);
+      border-radius: 6px;
+    }
+    
+    .cart-item-details {
+      flex: 1;
+    }
+    
+    .cart-item-name {
+      font-weight: 600;
+    }
+    
+    .cart-item-variant {
+      font-size: 14px;
+      color: var(--color-text-light);
+    }
+    
+    .cart-item-price {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    
+    .qty-btn {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid var(--color-border);
+    }
+    
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .cart-total span:last-child {
+      color: var(--color-primary);
+    }
+    
+    .checkout-btn {
+      width: 100%;
+      background: var(--color-primary);
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    .empty-cart {
+      text-align: center;
+      padding: 48px 0;
+      color: var(--color-text-light);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+      }
+      
+      .benefits-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="#" class="logo">
+          <div class="logo-icon">AR</div>
+          <span class="logo-text">Abd Rehem</span>
+        </a>
+        
+        <nav>
+          <a href="#">Home</a>
+          <a href="#shop">Shop</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <button onclick="toggleCart()" style="position: relative; background: none; border: none; cursor: pointer; padding: 8px;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span id="cart-badge" style="position: absolute; top: 0; right: 0; background: #EF4444; color: white; font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">0</span>
+          </button>
+          <a href="#shop" class="cart-btn">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div>
+          <h1>Abd Rehem</h1>
+          <p>Premium quality clothing for the modern lifestyle</p>
+          <p>Discover our collection of premium shirts and hoodies crafted with attention to detail and quality.</p>
+          <div class="hero-buttons">
+            <a href="#shop" class="btn btn-primary">Shop Collection</a>
+            <a href="#about" class="btn btn-secondary">About Us</a>
+          </div>
+        </div>
+        <div class="brand-logo">
+          <span>AR</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Products -->
+  <section class="section" id="shop">
+    <div class="container">
+      <h2 class="section-title">Featured Products</h2>
+      <p class="section-subtitle">Discover our most popular items that embody the Abd Rehem quality and style.</p>
+      
+      <div class="product-grid" id="product-grid">
+        <!-- Products will be rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+  
+  <!-- Benefits -->
+  <section class="section benefits">
+    <div class="container">
+      <h2 class="section-title">Why Choose Abd Rehem?</h2>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3>Premium Quality</h3>
+          <p>High-quality materials and craftsmanship in every piece.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3>Fast Shipping</h3>
+          <p>Quick and reliable delivery to your doorstep.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+          </div>
+          <h3>Easy Returns</h3>
+          <p>30-day return policy for your peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About Abd Rehem</h2>
+      <p class="section-subtitle">We believe in creating premium clothing that combines style, comfort, and quality.</p>
+      
+      <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 18px; color: var(--color-text-light); margin-bottom: 20px;">
+          Founded with a passion for quality clothing, Abd Rehem emerged from the simple belief that everyone deserves to wear clothes that make them feel confident and comfortable.
+        </p>
+        <p style="font-size: 18px; color: var(--color-text-light);">
+          Today, we continue to expand our collection while maintaining our commitment to quality, sustainability, and customer satisfaction.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact -->
+  <section class="section benefits" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">Have questions? We're here to help!</p>
+      
+      <div style="max-width: 600px; margin: 0 auto;">
+        <div style="background: white; padding: 32px; border-radius: 12px;">
+          <form id="contact-form" style="display: flex; flex-direction: column; gap: 16px;">
+            <input type="text" placeholder="Your Name" style="padding: 14px; border: 1px solid var(--color-border); border-radius: 8px; font-size: 16px;">
+            <input type="email" placeholder="Your Email" style="padding: 14px; border: 1px solid var(--color-border); border-radius: 8px; font-size: 16px;">
+            <textarea placeholder="Your Message" rows="4" style="padding: 14px; border: 1px solid var(--color-border); border-radius: 8px; font-size: 16px; resize: vertical;"></textarea>
+            <button type="submit" class="cart-btn" style="justify-content: center; border: none; font-size: 16px;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">AR</div>
+            <span class="logo-text" style="color: white;">Abd Rehem</span>
+          </a>
+          <p>Premium quality clothing for the modern lifestyle.</p>
+        </div>
+        
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Shop All</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#shop">Shirts</a></li>
+            <li><a href="#shop">Hoodies</a></li>
+            <li><a href="#shop">New Arrivals</a></li>
+          </ul>
+        </div>
+        
+        <div class="newsletter">
+          <h4>Newsletter</h4>
+          <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Abd Rehem. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+          <a href="#">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Cart Modal -->
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h2>Shopping Cart</h2>
+        <button class="close-cart" onclick="toggleCart()">&times;</button>
+      </div>
+      
+      <div class="cart-items" id="cart-items">
+        <div class="empty-cart">Your cart is empty</div>
+      </div>
+      
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Product Data
+    const products = [
+      {
+        id: 1,
+        name: 'Classic T-Shirt',
+        description: 'Premium quality cotton t-shirt with comfortable fit.',
+        price: 29.99,
+        category: 'shirt',
+        colors: ['green', 'white'],
+        newArrival: true,
+        sizes: ['S', 'M', 'L', 'XL']
+      },
+      {
+        id: 2,
+        name: 'Logo Tee',
+        description: 'Brand logo tee with premium cotton blend.',
+        price: 34.99,
+        category: 'shirt',
+        colors: ['green', 'white'],
+        newArrival: true,
+        sizes: ['S', 'M', 'L', 'XL']
+      },
+      {
+        id: 3,
+        name: 'Pullover Hoodie',
+        description: 'Comfortable pullover hoodie with soft fleece lining.',
+        price: 59.99,
+        category: 'hoodie',
+        colors: ['green', 'white'],
+        newArrival: false,
+        sizes: ['S', 'M', 'L', 'XL']
+      },
+      {
+        id: 4,
+        name: 'Zip-up Hoodie',
+        description: 'Modern zip-up hoodie with functional pockets.',
+        price: 69.99,
+        salePrice: 54.99,
+        category: 'hoodie',
+        colors: ['green', 'white'],
+        newArrival: true,
+        sizes: ['S', 'M', 'L', 'XL']
+      },
+      {
+        id: 5,
+        name: 'V-Neck Shirt',
+        description: 'Stylish v-neck shirt for casual occasions.',
+        price: 39.99,
+        category: 'shirt',
+        colors: ['green', 'white'],
+        newArrival: true,
+        sizes: ['S', 'M', 'L', 'XL']
+      },
+      {
+        id: 6,
+        name: 'Classic Hoodie',
+        description: 'Timeless classic hoodie with ribbed cuffs.',
+        price: 54.99,
+        category: 'hoodie',
+        colors: ['green', 'white'],
+        newArrival: false,
+        sizes: ['S', 'M', 'L', 'XL']
+      }
+    ];
+    
+    // Cart State
+    let cart = JSON.parse(localStorage.getItem('abd-rehem-cart')) || [];
+    
+    // Render Products
+    function renderProducts() {
+      const grid = document.getElementById('product-grid');
+      grid.innerHTML = products.map(product => {
+        const hasSale = product.salePrice && product.salePrice < product.price;
+        const displayPrice = hasSale ? product.salePrice : product.price;
+        
+        return `
+          <div class="product-card">
+            <div class="product-image">
+              ${product.newArrival ? '<span class="badge badge-new">NEW</span>' : ''}
+              ${hasSale ? '<span class="badge badge-sale">SALE</span>' : ''}
+              <div class="placeholder-image">
+                <span>Product Image</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category">${product.category}</span>
+              <h3 class="product-name">${product.name}</h3>
+              <p class="product-desc">${product.description}</p>
+              <div class="product-colors">
+                ${product.colors.map(c => `<div class="color-dot color-${c}"></div>`).join('')}
+              </div>
+              <div class="product-price">
+                $${displayPrice.toFixed(2)}
+                ${hasSale ? `<span class="original">$${product.price.toFixed(2)}</span>` : ''}
+              </div>
+              <button class="add-to-cart" onclick="addToCart(${product.id})">Add to Cart</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    // Add to Cart
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+      
+      const existingItem = cart.find(item => item.productId === productId);
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cart.push({ productId, quantity: 1 });
+      }
+      
+      saveCart();
+      updateCartBadge();
+      alert(`${product.name} added to cart!`);
+    }
+    
+    // Save Cart
+    function saveCart() {
+      localStorage.setItem('abd-rehem-cart', JSON.stringify(cart));
+    }
+    
+    // Update Cart Badge
+    function updateCartBadge() {
+      const badge = document.getElementById('cart-badge');
+      const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+      badge.textContent = total;
+    }
+    
+    // Toggle Cart
+    function toggleCart() {
+      const modal = document.getElementById('cart-modal');
+      modal.classList.toggle('active');
+      if (modal.classList.contains('active')) {
+        renderCartItems();
+      }
+    }
+    
+    // Render Cart Items
+    function renderCartItems() {
+      const container = document.getElementById('cart-items');
+      const totalEl = document.getElementById('cart-total');
+      
+      if (cart.length === 0) {
+        container.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+        totalEl.textContent = '$0.00';
+        return;
+      }
+      
+      let total = 0;
+      container.innerHTML = cart.map(item => {
+        const product = products.find(p => p.id === item.productId);
+        if (!product) return '';
+        
+        const price = product.salePrice || product.price;
+        const itemTotal = price * item.quantity;
+        total += itemTotal;
+        
+        return `
+          <div class="cart-item">
+            <div class="cart-item-image"></div>
+            <div class="cart-item-details">
+              <div class="cart-item-name">${product.name}</div>
+              <div class="cart-item-variant">Size: M | Color: Green</div>
+              <div class="cart-item-price">$${price.toFixed(2)}</div>
+              <div class="quantity-controls">
+                <button class="qty-btn" onclick="updateQuantity(${item.productId}, -1)">-</button>
+                <span>${item.quantity}</span>
+                <button class="qty-btn" onclick="updateQuantity(${item.productId}, 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      totalEl.textContent = `$${total.toFixed(2)}`;
+    }
+    
+    // Update Quantity
+    function updateQuantity(productId, change) {
+      const item = cart.find(i => i.productId === productId);
+      if (!item) return;
+      
+      item.quantity += change;
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.productId !== productId);
+      }
+      
+      saveCart();
+      updateCartBadge();
+      renderCartItems();
+    }
+    
+    // Checkout
+    function checkout() {
+      if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+      
+      alert('Thank you for your order! This is a demo checkout.');
+      cart = [];
+      saveCart();
+      updateCartBadge();
+      toggleCart();
+    }
+    
+    // Initialize
+    renderProducts();
+    updateCartBadge();
+  </script>
+</body>
+</html>

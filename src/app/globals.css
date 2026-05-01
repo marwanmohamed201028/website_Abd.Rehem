@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+  /* Abd Rehem Brand Colors */
+  --color-primary: #2E7D32;    /* Green */
+  --color-primary-light: #4CAF50;
+  --color-white: #FFFFFF;
+  --color-background: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-light: #666666;
+  --color-border: #E0E0E0;
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #EEEEEE;
+  --color-gray-300: #E0E0E0;
+  --color-gray-400: #BDBDBD;
+  --color-gray-500: #9E9E9E;
+  --color-gray-600: #757575;
+  --color-gray-700: #616161;
+  --color-gray-800: #424242;
+  --color-gray-900: #212121;
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 48px;
+  
+  /* Border Radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  
+  /* Transitions */
+  --transition: 0.2s ease-in-out;
+  --transition-slow: 0.3s ease-in-out;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-text);
+  --font-sans: var(--font-family);
+  --font-mono: var(--font-family);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.6;
+}
+
+/* Custom Styles for Abd Rehem */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+  padding: 12px 24px;
+  border-radius: var(--border-radius-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-light);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  padding: 12px 24px;
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--color-primary);
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.border-green {
+  border-color: var(--color-primary);
+}
+
+.text-green {
+  color: var(--color-primary);
+}
+
+.bg-green {
+  background-color: var(--color-primary);
+}
+
+.bg-green-light {
+  background-color: var(--color-primary-light);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1A1A1A;
+    --color-text: #FFFFFF;
+    --color-text-light: #CCCCCC;
+    --color-border: #333333;
+    --color-gray-100: #2D2D2D;
+    --color-gray-200: #333333;
+    --color-gray-300: #404040;
+    --color-gray-400: #666666;
+    --color-gray-500: #888888;
+    --color-gray-600: #AAAAAA;
+    --color-gray-700: #CCCCCC;
+    --color-gray-800: #DDDDDD;
+    --color-gray-900: #FFFFFF;
+  }
+  
+  .card {
+    background-color: var(--color-gray-800);
+    border: 1px solid var(--color-border);
+  }
+}
